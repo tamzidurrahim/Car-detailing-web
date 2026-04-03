@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 4%;
+    --foreground: 40 10% 95%;
+
+    --card: 240 15% 8%;
+    --card-foreground: 40 10% 95%;
+
+    --popover: 240 15% 8%;
+    --popover-foreground: 40 10% 95%;
+
+    --primary: 25 60% 45%;
+    --primary-foreground: 40 10% 95%;
+
+    --secondary: 240 12% 14%;
+    --secondary-foreground: 40 10% 95%;
+
+    --muted: 240 10% 16%;
+    --muted-foreground: 240 5% 55%;
+
+    --accent: 25 60% 45%;
+    --accent-foreground: 40 10% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 25 60% 45%;
+
+    --radius: 0.75rem;
+
+    --copper: 25 60% 45%;
+    --copper-light: 25 50% 58%;
+    --copper-glow: 25 80% 50%;
+    --midnight: 240 20% 4%;
+    --midnight-light: 240 15% 8%;
+    --midnight-mid: 240 12% 14%;
+    --pearl: 40 10% 95%;
+    --pearl-muted: 40 5% 75%;
+
+    --glass-bg: 240 15% 10% / 0.6;
+    --glass-border: 240 10% 30% / 0.3;
+
+    --gradient-copper: linear-gradient(135deg, hsl(25 60% 45%), hsl(35 70% 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 20% 4%), hsl(240 15% 8%));
+    --gradient-glass: linear-gradient(135deg, hsl(240 15% 12% / 0.8), hsl(240 15% 8% / 0.4));
+
+    --shadow-copper: 0 0 30px -5px hsl(25 60% 45% / 0.3);
+    --shadow-elevated: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 240 15% 8%;
+    --sidebar-foreground: 40 10% 95%;
+    --sidebar-primary: 25 60% 45%;
+    --sidebar-primary-foreground: 40 10% 95%;
+    --sidebar-accent: 240 12% 14%;
+    --sidebar-accent-foreground: 40 10% 95%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-ring: 25 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .copper-glow {
+    box-shadow: var(--shadow-copper);
+  }
+
+  .text-gradient-copper {
+    background: var(--gradient-copper);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-copper {
+    background: var(--gradient-copper);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--midnight));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--copper) / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--copper) / 0.6);
+}
