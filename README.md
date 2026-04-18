@@ -33,5 +33,4 @@ npm run dev
 ```
 Then open your browser at `http://localhost:5173`
 
-## 🌐 Live Demo
-[View Live Site](https://doozydetailing.netlify.app)
+
